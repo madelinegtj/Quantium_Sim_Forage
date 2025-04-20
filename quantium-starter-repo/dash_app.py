@@ -15,7 +15,7 @@ app = dash.Dash(__name__)
 app.title = "Pink Morsel Sales Dashboard"
 
 app.layout = html.Div([
-    html.H1("Pink Morsel Sales Over Time"),
+    html.H1("Pink Morsel Sales Over Time", id='main-header'),
 
     html.Div([
         html.Label("Select a Region:"),
