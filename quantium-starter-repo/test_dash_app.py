@@ -45,3 +45,25 @@ def test_region_picker_present(driver):
     driver.get("http://127.0.0.1:8050/")
     radio = driver.find_element("id", "region-radio")
     assert radio is not None
+
+
+
+
+"""
+from pink_morsel_visualizer import dash_app
+
+
+def test_header_exists(dash_duo):
+    dash_duo.start_server(dash_app)
+    dash_duo.wait_for_element("#main-header", timeout=10)
+
+
+def test_visualization_exists(dash_duo):
+    dash_duo.start_server(dash_app)
+    dash_duo.wait_for_element("#sales-line-chart", timeout=10)
+
+
+def test_region_picker_exists(dash_duo):
+    dash_duo.start_server(dash_app)
+    dash_duo.wait_for_element("#region-radio", timeout=10)
+"""
