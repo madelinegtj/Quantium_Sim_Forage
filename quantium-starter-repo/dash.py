@@ -11,9 +11,16 @@ for file in files:
     df = pd.read_csv(path)
 
     # Filter for Pink Morsels only
-    pink_df = df[df['product'] == 'Pink Morsels']
-
-    # Create 'sales' column
+    pink_df = df[df['product'] == 'pink morsel']
+    
+    # Remove '$' from price column and convert to float and ensure 'quantity' is numeric
+    df['price'] = df['price'].replace('[\$,]', '', regex=True).astype(float)
+    df['quantity'] = pd.to_numeric(df['quantity'], errors='coerce')
+    
+    # copy the dataframe before  filtering
+    pink_df = df[df['product'].str.strip().str.lower() == 'pink morsel'].copy()
+    
+    #Create 'sales' column
     pink_df['sales'] = pink_df['quantity'] * pink_df['price']
 
     # Keep only 'sales', 'date', and 'region'
